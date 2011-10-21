@@ -1,6 +1,6 @@
 package Lingua::Charsets;
 {
-	$Lingua::Charsets::VERSION = 0.001;
+	$Lingua::Charsets::VERSION = 0.002;
 }
 
 use namespace::autoclean;
@@ -9,18 +9,16 @@ use MooseX::StrictConstructor;
 
 has language_charsets	=> (
 	isa		=> 'HashRef',
-	traits		=> ['Hash'],
 	is		=> 'ro',
 	lazy		=> 1,
 	builder		=> '_build_language_charsets',
 );
 
-has language_charsets_raw_reference	=> (
+has language_charsets_raw_reference => (
 	isa		=> 'Str',
 	is		=> 'ro',
 	lazy		=> 1,
-	default		=> sub {
-	my $data	= q[
+	default		=> q[
 af (Afrikaans)		iso-8859-1 cp1252
 sq (Albanian)		iso-8859-1 cp1252 iso-8859-16
 ar (Arabic)		iso-8859-6 cp864 cp1256 MacArabic
@@ -71,8 +69,7 @@ th (Thai)		cp874 tis-620 MacThai iso-8859-11
 tr (Turkish)		iso-8859-9 cp857 cp1254 MacTurkish
 uk (Ukrainian)		iso-8859-5
 vi (Vietnamese)		cp1258
-];
-	}
+]
 );
 
 no Moose;
@@ -132,12 +129,14 @@ http://www.w3.org/International/O-charset-lang.html
 
 =head2 language_charsets
 
-Returns a HashRef[ArrayRef[Str]] consisting of ISO-639-1 language codes
-as hash keys and an array of charsets has the hash values.
+Returns a HashRef consisting of ISO-639-1 language codes as hashref keys.
+The hashref values are hashrefs with the key 'charsets' that consists
+of an arrayref of charsets.
 
-=head2 charsets_for( $language )
+=head2 charsets_for( $iso_639_1_code )
 
-Returns an ArrayRef[Str] of charsets for the language if found.
+Returns an ArrayRef[Str] of charsets for the language's ISO-639-1 code. An
+empty ArrayRef is returned if the language isn't found.
 
 =head1 SEE ALSO
 

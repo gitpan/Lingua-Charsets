@@ -11,11 +11,7 @@ use ExtUtils::MakeMaker 6.30;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Language-based charset reference",
   "AUTHOR" => "John Wang <jwang\@cpan.org>",
-  "BUILD_REQUIRES" => {
-    "JSON::Any" => 0,
-    "Test::Simple" => 0,
-    "strict" => 0
-  },
+  "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
   },
@@ -23,12 +19,8 @@ my %WriteMakefileArgs = (
   "EXE_FILES" => [],
   "LICENSE" => "mit",
   "NAME" => "Lingua::Charsets",
-  "PREREQ_PM" => {
-    "Moose" => 0,
-    "MooseX::StrictConstructor" => 0,
-    "namespace::autoclean" => 0
-  },
-  "VERSION" => "0.001",
+  "PREREQ_PM" => {},
+  "VERSION" => "0.002",
   "test" => {
     "TESTS" => "t/*.t"
   }
