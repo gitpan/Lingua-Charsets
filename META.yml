@@ -2,7 +2,10 @@
 abstract: 'Language-based charset reference'
 author:
   - 'John Wang <jwang@cpan.org>'
-build_requires: {}
+build_requires:
+  JSON::Any: 0
+  Test::Simple: 0
+  strict: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
@@ -12,4 +15,8 @@ meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Lingua-Charsets
-version: 0.002
+requires:
+  Moose: 0
+  MooseX::StrictConstructor: 0
+  namespace::autoclean: 0
+version: 0.003

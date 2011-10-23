@@ -1,6 +1,6 @@
 package Lingua::Charsets;
 {
-	$Lingua::Charsets::VERSION = 0.002;
+	$Lingua::Charsets::VERSION = 0.003;
 }
 
 use namespace::autoclean;
@@ -42,13 +42,13 @@ de (German)		iso-8859-1 cp1252
 ka (Georgian)		geostd8
 el (Greek)		iso-8859-7 cp869 cp1253 MacGreek
 iw (Hebrew)		iso-8859-8 cp1255 MacHebrew
-hu (Hungarian)		iso-8859-2 iso-8859-16
+hu (Hungarian)		iso-8859-2 cp1250 iso-8859-16
 is (Icelandic)		iso-8859-1 cp1252 MacIceland iso-8859-10
 id (Indonesian)		iso-8859-1
 ga (Irish)		iso-8859-1 cp1252
 it (Italian)		iso-8859-1 cp1252
-ja (Japanese)		shiftjis iso-2022-jp euc-jp 7bit-ji
-ko (Korean)		euc-kr
+ja (Japanese)		shiftjis iso-2022-jp euc-jp 7bit-jis iso-2022-jp-1 MacJapanese cp932 jis0201-raw jis0208-raw jis0212-raw
+ko (Korean)		euc-kr ksc5601-raw cp949 MacKorean johab iso-2022-kr
 lv (Latvian)		iso-8859-13 cp1257
 lt (Lithuanian)		iso-8859-13 cp1257
 mk (Macedonian)		iso-8859-5 cp1251
@@ -140,7 +140,7 @@ empty ArrayRef is returned if the language isn't found.
 
 =head1 SEE ALSO
 
-L<Encode::Guess>, L<Lingua::RU::Charset>
+L<Encode::Guess>, L<Encode::JP>, L<Encode::KR>, L<Lingua::RU::Charset>
 
 =head1 REFERENCES
 
@@ -149,6 +149,8 @@ W3.org "I18N languages, countries and character sets" page at:
 http://www.w3.org/International/O-charset-lang.html
 
 Additional information can be found at:
+
+http://aspell.net/charsets/
 
 http://en.wikipedia.org/wiki/Character_encoding
 
