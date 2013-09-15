@@ -1,6 +1,6 @@
 package Lingua::Charsets;
 {
-	$Lingua::Charsets::VERSION = 0.003;
+	$Lingua::Charsets::VERSION = 0.04;
 }
 
 use namespace::autoclean;
@@ -111,6 +111,8 @@ Lingua::Charsets - Provides a list of charsets by language.
 
 =head1 SYNOPSIS
 
+    use Lingua::Charsets;
+
 	my $lc = Lingua::Charsets->new;
 
 	my $zh_charsets = $lc->charsets_for( 'zh' );
@@ -123,7 +125,7 @@ in conjunction with a charset guessing algorithm such as Encode::Guess.
 The data used comes from a variety of locations; however, the initial
 source was The W3C charset listing available at:
 
-http://www.w3.org/International/O-charset-lang.html
+L<http://www.w3.org/International/O-charset-lang.html>
 
 =head1 METHODS
 
@@ -146,15 +148,15 @@ L<Encode::Guess>, L<Encode::JP>, L<Encode::KR>, L<Lingua::RU::Charset>
 
 W3.org "I18N languages, countries and character sets" page at:
 
-http://www.w3.org/International/O-charset-lang.html
+L<http://www.w3.org/International/O-charset-lang.html>
 
 Additional information can be found at:
 
-http://aspell.net/charsets/
+L<http://aspell.net/charsets/>
 
-http://en.wikipedia.org/wiki/Character_encoding
+L<http://en.wikipedia.org/wiki/Character_encoding>
 
-http://www.mnogosearch.org/doc/msearch-international.html
+L<http://www.mnogosearch.org/doc/msearch-international.html>
 
 Aliases are listed in the mnoGoSearch webpage; however, they are not
 currently included as aliases would not be useful for decoding.
@@ -163,29 +165,32 @@ deemed useful.
 
 =head1 AUTHOR
 
-John Wang <john@johnwang.com>
+John Wang E<lt>johncwang@gmail.comE<gt>
 
-=head1 COPYRIGHT AND LICENSE (The MIT License)
+=head1 COPYRIGHT
 
-Copyright (c) 2011 John Wang <john@johnwang.com>
+Copyright 2013 by John Wang E<lt>johncwang@gmail.comE<gt>.
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
+This software is released under the MIT license cited below.
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+=head2 The "MIT" License
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
 
 =cut

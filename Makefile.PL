@@ -11,11 +11,7 @@ use ExtUtils::MakeMaker 6.30;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Language-based charset reference",
   "AUTHOR" => "John Wang <jwang\@cpan.org>",
-  "BUILD_REQUIRES" => {
-    "JSON::Any" => 0,
-    "Test::Simple" => 0,
-    "strict" => 0
-  },
+  "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
   },
@@ -28,12 +24,30 @@ my %WriteMakefileArgs = (
     "MooseX::StrictConstructor" => 0,
     "namespace::autoclean" => 0
   },
-  "VERSION" => "0.003",
+  "TEST_REQUIRES" => {
+    "JSON::Any" => 0,
+    "Test::Simple" => 0,
+    "strict" => 0
+  },
+  "VERSION" => "0.04",
   "test" => {
     "TESTS" => "t/*.t"
   }
 );
 
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
+  my $tr = delete $WriteMakefileArgs{TEST_REQUIRES};
+  my $br = $WriteMakefileArgs{BUILD_REQUIRES};
+  for my $mod ( keys %$tr ) {
+    if ( exists $br->{$mod} ) {
+      $br->{$mod} = $tr->{$mod} if $tr->{$mod} > $br->{$mod};
+    }
+    else {
+      $br->{$mod} = $tr->{$mod};
+    }
+  }
+}
 
 unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
   my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
